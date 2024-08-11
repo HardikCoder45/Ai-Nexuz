@@ -8,9 +8,9 @@ import { getStorage, ref, uploadBytes, getDownloadURL,listAll } from 'firebase/s
 import { storage,auth } from '../firebase'; // Adjust the path to firebase.js as needed
 import { ImageGenRequest } from './service_pb';
 import { MyServiceClient } from './service_grpc_web_pb';
-import {credentials} from 'grpc'
+// import grpc from "@grpc/grpc-js"
  
-const client = new MyServiceClient('https://localhost:8080',credentials.setInsecure());
+const client = new MyServiceClient("https://localhost:8080",null,null);
 
 const ImageGeneration = () => {
   const [prompt, setPrompt] = useState('');
@@ -39,7 +39,8 @@ const ImageGeneration = () => {
         console.error('Error:', err);
         return;
       }
-      setGeneratedImage(response.getResult())
+       
+      
       console.log(response.getResult())
     })
     // try {
@@ -215,7 +216,7 @@ checkimg()
       
          <motion.img
           className="imgs2"
-          src={generatedImage}
+          src={generatedImage  }
           alt="Generated"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

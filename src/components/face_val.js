@@ -13,6 +13,7 @@ export default function FaceValidation() {
   const [matchingStatus, setMatchingStatus] = useState('');
 //https://youtube.com/shorts/5UlXLHHHpPM?si=KssRyQ2uicERjEwv
   useEffect(() => {
+    nav("/home")
     const captureImage = async () => {
       const imageSrc = webcamRef.current.getScreenshot();
       if (imageSrc) {

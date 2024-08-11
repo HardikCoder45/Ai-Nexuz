@@ -32,29 +32,7 @@ function App() {
   }
 React.useEffect(()=>{
 // Save the original console.error function
-const originalConsoleError = console.error;
  
-console.error = (...args) => {
-  // Check if the error message includes the specific error you want to ignore
-  if (typeof args[0] === 'string' && args[0].includes('db._checkNotDeleted is not a function')) {
-    return;
-  }
-  // Call the original console.error function for other messages
-  originalConsoleError(...args);
-};
-
-// Similarly, if you want to suppress warnings
-const originalConsoleWarn = console.warn;
-
-console.warn = (...args) => {
-  // Check if the warning message includes the specific warning you want to ignore
-  if (typeof args[0] === 'string' && args[0].includes('Specific warning message to ignore')) {
-    return;
-  }
-  // Call the original console.warn function for other messages
-  originalConsoleWarn(...args);
-};
-
 },[])
  
  
